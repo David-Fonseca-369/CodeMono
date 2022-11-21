@@ -1,0 +1,131 @@
+<div class="vertical-center bg-light">
+  <div class="card card-center p-0 px-4 shadow">
+    <div class="row m-3">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <form class="container-form mt-4" [formGroup]="frmRegister" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-12">
+              <div class="row">
+                <div class="col-md-12 col-12 mb-4 text-center">
+                  <h3 class="fw-bold">Sign Up</h3>
+                  <span class="text-md"
+                    >Sign up to create your new account</span
+                  >
+                </div>
+              </div>
+
+              <div class="input-group mb-2">
+                <label for="username">First name</label>
+                <div class="input-icon input-icon-right">
+                  <input
+                    type="text"
+                    class="form-control form-control-color"
+                    autocomplete="off"
+                    required
+                    formControlName="firstName"
+                  />
+                </div>
+              </div>
+
+              <div class="input-group mb-2">
+                <label for="username">Last name</label>
+                <div class="input-icon input-icon-right">
+                  <input
+                    type="text"
+                    class="form-control form-control-color"
+                    autocomplete="off"
+                    required
+                    formControlName="lastName"
+                  />
+                </div>
+              </div>
+
+              <div class="input-group mb-2">
+                <label for="username">Email</label>
+                <div class="input-icon input-icon-right">
+                  <input
+                    type="email"
+                    class="form-control form-control-color"
+                    autocomplete="off"
+                    required
+                    formControlName="username"
+                  />
+                </div>
+              </div>
+
+              <div class="input-group mb-2">
+                <label for="Email">Password</label>
+                <div class="input-icon input-icon-right">
+                  <input
+                    type="password"
+                    class="form-control form-control-color"
+                    autocomplete="off"
+                    required
+                    formControlName ="password"
+                  />
+                </div>
+              </div>
+
+              <div class="input-group mb-2">
+                <label for="ConfirmPassword">Confirm password</label>
+                <div class="input-icon input-icon-right">
+                  <input
+                    type="password"
+                    class="form-control form-control-color"
+                    autocomplete="off"
+                    required
+                    formControlName="reTypePassword"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row pb-2 pt-4 d-flex align-items-center">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+              <div class="form-check mb-3 d-flex justify-content-center">
+                <input id="checkbox" type="checkbox" formControlName="terms" />
+                <label for="checkbox" class="text-xs mb-0"
+                  >I Agree the terms and conditions.</label
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-12 mb-4 text-center">
+                <!-- El signo es forzoso por ser una validación -->
+              <h3 class="text-md text-danger"
+              *ngIf="!this.frmRegister.get('terms')?.value">Favor de aceptar los términos</h3>           
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block col-md-10 offset-md-1 col-sm-10 offset-sm-1 col-10 offset-1"
+                [disabled]="loading"
+              >
+                <span
+                  class="spinner-border spinner-border-sm mr-1"
+                  *ngIf="loading"
+                ></span>
+                Create my account
+              </button>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+              <span class="text-xs text-muted me-3"
+                >Already have an acocunt?</span
+              >
+              <a href="javascript:void(0);" routerLink="/account/login"
+                ><span class="text-xs text-primary fw-bold">Sign in</span></a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
